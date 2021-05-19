@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fazedor de Ficha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/vue@next" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Fazedor de Ficha</h1>
+  </header>
+  <section id="app">
+    <div class="content">
+      <h2>Informações Gerais</h2>
+      <div class="attribute-block">
+        <label for="player">Nome do Jogador</label>
+        <input type="text" name="player" placeholder="Nome do Jogador">
+      </div>
+
+      <div class="attribute-block">
+        <label for="name">Nome do Personagem</label>
+        <input type="text" name="name" placeholder="Nome do Personagem">
+      </div>
+
+      <h2>Atributos</h2>
+      <div class="attribute-block">
+        <label for="total">Pontos Totais </label>
+        <div class="input-value-block">
+          <div class="attribute-value">{{ atributes["total"] }}</div>
+        </div>
+      </div>
+
+      <div class="attribute-block">
+        <label for="forca">Força </label>
+        <div class="input-value-block">
+          <button @click="addPoint('strenght')" class="plus">+</button>
+          <div class="attribute-value">{{ atributes["strenght"] }}</div>
+          <button @click="removePoint('strenght')" class="less">-</button>
+        </div>
+      </div>
+
+      <div class="attribute-block">
+        <label for="agilidade">Agilidade </label>
+        <div class="input-value-block">
+          <button @click="addPoint('agility')" class="plus">+</button>
+          <div class="attribute-value">{{ atributes["agility"] }}</div>
+          <button @click="removePoint('agility')" class="less">-</button>
+        </div>
+      </div>
+
+      <div class="attribute-block">
+        <label for="inteligencia">Inteligência </label>
+        <div class="input-value-block">
+          <button @click="addPoint('intelligence')" class="plus">+</button>
+          <div class="attribute-value">{{ atributes["intelligence"] }}</div>
+          <button @click="removePoint('intelligence')" class="less">-</button>
+        </div>
+      </div>
+
+      <div class="attribute-block">
+        <label for="resistencia">Resistência </label>
+        <div class="input-value-block">
+          <button @click="addPoint('resistence')" class="plus">+</button>
+          <div class="attribute-value">{{ atributes["resistence"] }}</div>
+          <button @click="removePoint('resistence')" class="less">-</button>
+        </div>
+      </div>
+    
+      <div class="attribute-block">
+        <label for="habilidade">Habilidade </label>
+        <div class="input-value-block">
+          <button @click="addPoint('hability')" class="plus">+</button>
+          <div class="attribute-value">{{ atributes["hability"] }}</div>
+          <button @click="removePoint('hability')" class="less">-</button>
+        </div>
+      </div>
+
+      <h3>Status (autocalculáveis)</h3>
+      <div class="attribute-block">
+        <span>Pontos de Vida: {{ generateHealthPoints }} </span>
+      </div>
+      <div class="attribute-block">
+        <span>Pontos de Energia: {{ generateEnergyPoints }} </span>
+      </div>
+      
+      <h2>Vantagens e Desvantagens</h2>
+      <h3>Vantagens</h3>
+
+      <h3>Desvantagens</h3>
+
+      <h2>Personalidade</h2>
+      Tendência: 
+      <input type="text">
+
+      História:
+      <textarea rows="10" cols="50"></textarea>
+
+      <p>
+        {{ information }}
+      </p>
+      <p>
+        {{ atributes }}
+      </p>
+      <p>
+        {{ status }}
+      </p>
+    </div>
+  </section>
+</body>
+
+</html>
